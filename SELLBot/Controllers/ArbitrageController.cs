@@ -39,7 +39,7 @@ namespace SELLBot.Controllers
 
 
                 //var mainBaseFTXCoin = configuration.BaseCoins.FirstOrDefault()!.ConfigCoins.FirstOrDefault()!.Name;
-                var quantity = order.quantity / order.price;
+                var quantity = order.quantity / order.ask;
                 ResponseMessage response = new ResponseMessage();
                 BinanceClient client = new BinanceClient();
 
@@ -308,12 +308,16 @@ namespace SELLBot.Controllers
                         var ordersBTCInfo = await bClient.SpotApi.CommonSpotClient.GetOpenOrdersAsync(coin.BTCFTX);
 
                         var ordersUSDTInfo = await bClient.SpotApi.CommonSpotClient.GetOpenOrdersAsync(coin.USDTFTX);
+                        
+                        var btcOrders = await bClient.SpotApi.CommonSpotClient.GetOpenOrdersAsync(mainBaseCoinFTX);
 
                         bool openedOrders = (
                                             ordersBTCInfo.Data.Any() ||
                                             ordersUSDTInfo.Data.Any() ||
+                                            btcOrders.Data.Any() ||
                                             opnOrders.Data.Where(t => t.Symbol == coin.BTCFTX).Any() ||
-                                            opnOrders.Data.Where(t => t.Symbol == coin.USDTFTX).Any())
+                                            opnOrders.Data.Where(t => t.Symbol == coin.USDTFTX).Any() ||
+                                            opnOrders.Data.Where(t => t.Symbol == mainBaseCoinFTX).Any())
                                             ? true : false;
                         decimal perc = Math.Round(((calculatedVal / 1) * 100), 5);
                         DateTime refDate = date.AddMinutes(Convert.ToInt16(configuration.AutomaticProcess_Duration));
@@ -400,11 +404,13 @@ namespace SELLBot.Controllers
                             //directionalRatio < 0.4 && canOperateCandle
                             )
                         {
-                            var decimalNumb = coinBidI.BestAskQuantity.ToString("0.########");
+                            //var decimalNumb = coinBidI.BestAskQuantity.ToString("0.########");
                             int decimalQuantity = 0;
 
-                            var cut = decimalNumb != null ? decimalNumb.Replace(",", ".").Split('.') : new string[0];
-                            if (cut.Count() > 1) decimalQuantity = Convert.ToInt32(cut[1].Length);
+                            decimalQuantity = configuration!.AutomaticProcess_Coins!.FirstOrDefault()!.ConfigCoins!.Where(t => t.Name == coin.Symbol).FirstOrDefault()!.CoinDecimals;
+
+                            //var cut = decimalNumb != null ? decimalNumb.Replace(",", ".").Split('.') : new string[0];
+                            //if (cut.Count() > 1) decimalQuantity = Convert.ToInt32(cut[1].Length);
 
                             await CreateOrder(new OrdersInput()
                             {

@@ -15,6 +15,7 @@
     public class ConfigCoin
     {
         public string Name { get; set; }
+        public int CoinDecimals { get; set; }
     }
 
     public class ExchangeApiDatum
