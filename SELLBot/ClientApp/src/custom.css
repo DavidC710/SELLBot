@@ -1,0 +1,43 @@
+/* Provide sufficient contrast against white background */
+.bgC {
+    background-color: #111111 !important;
+    height: 969px !important;
+}
+
+.btn-primary {
+    color: #343434;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.tableTitle {
+    color: #FFFFFF;
+}
+
+.rowC {
+    display: flex;
+    flex-direction: row;
+}
+
+.rowC-elementA {
+    padding-left: 30px !important;
+    color: #FFFFFF;
+    font-size: 17px !important;
+}
+
+.rowC-element {
+    padding-left: 30px !important;
+    color: #FFFFFF;
+}
+
+.tableData {
+    color: #FFFFFF;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}

@@ -1,0 +1,92 @@
+{
+	"Exchange_ApiData": [
+		{
+			"Exchange": "FTX",
+			"ApiKey": "X_EZGH4CgOY67lNjECY0xTidPQxP3F8OlXvQqK-i",
+			"Secret": "8uWvmB6ho9RXZJG6wr0ycAL3-pGJNnwZ7wbZ8ibw",
+			"ApiKeySub": "tlhIm0gXKQW_zI_2Xu6ImZMI0bm3w612WzZUWros",
+			"SecretSub": "cTlN-0FU6R0HE7xjcbjKzW_PbG2HGF7M6aUijoBq"
+		},
+		{
+			"Exchange": "BINANCE",
+			"ApiKey": "uM7ASQM3sML97IZYJ5BoiXb9CoYikMAK6a9jGRP1S73WIM2Pzc136bAQGorq38No",
+			"Secret": "z6tTKO3cf0o4n5yO8ObiFgRZ3Pao8uiXaKogEdnU1iY3QNy3FjVpwsKxMVmv0ecN"
+			//"ApiKeySub": "tlhIm0gXKQW_zI_2Xu6ImZMI0bm3w612WzZUWros",
+			//"SecretSub": "cTlN-0FU6R0HE7xjcbjKzW_PbG2HGF7M6aUijoBq"
+		}
+	],
+	"Sufixes": [
+		{
+			"Sufix": "BTC"
+		},
+		{
+			"Sufix": "BUSD"
+		}
+	],
+	"BaseCoins": [
+		{
+			"Exchange": "FTX",
+			"ConfigCoins": [
+				{
+					"Name": "BTC/BUSD"
+				},
+				{
+					"Name": "ETH/BUSD"
+				}
+			]
+		},
+		{
+			"Exchange": "BINANCE",
+			"ConfigCoins": [
+				{
+					"Name": "BTCBUSD"
+				},
+				{
+					"Name": "ETHBUSD"
+				}
+			]
+		}
+	],
+	"TradeCoins": [
+		{ "Name": "IMX" },
+		{ "Name": "YFI" },
+		//{ "Name": "STX" },
+		//{ "Name": "LINK" },
+		//{ "Name": "SUSHI" },
+		//{ "Name": "XRP" },
+		//{ "Name": "AVAX" },
+		//{ "Name": "BNB" },
+		//{ "Name": "BCH" }
+	],
+	"AutomaticProcess_Coins": [
+		{
+			"Exchange": "FTX",
+			"ConfigCoins": [
+				{ "Name": "LTC" },
+				{ "Name": "DOT" },
+				{ "Name": "XRP" },
+				{ "Name": "AVAX" }
+			]
+		},
+		{
+			"Exchange": "BINANCE",
+			"ConfigCoins": [
+				{ "Name": "YFI" },
+			  { "Name": "IMX" },
+			//{ "Name": "STX" },
+			//{ "Name": "ZRX" }
+			]
+		}
+	],
+	"AutomaticProcess_Duration": 210,
+	"StartProcess_Hour": "01",
+	"StartProcess_Minute": "30",
+	"DefaultQuantity": 0.004,
+	"ArbitragePercentageValue": 0.15,
+	"BTCLoop_Duration": 5,
+	"BTCLoopStart_Hour": "08",
+	"BTCLoopStart_Minute": "16",
+	"ETHLoop_Duration": 5,
+	"ETHLoopStart_Hour": "08",
+	"ETHLoopStart_Minute": "16"
+}
